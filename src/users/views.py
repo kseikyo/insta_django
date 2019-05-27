@@ -4,11 +4,11 @@ from django.contrib.auth import authenticate, login, logout
 # Create your views here.
 
 def login_view(request):
-    username = request.POST['username']
-    password = request.POST['password']
+    username = request.POST.get('username', False)
+    password = request.POST.get('password', False)
     user     = authenticate(request, username=username, password=password)
     if user is not None:
         login(request, user)
         # redirect('home')
     else:
-        redirect('login_view')
+        redirect('home_page')
