@@ -1,0 +1,52 @@
+/* START LANDING-PAGE CSS */
+.wrapper-land {
+    display: grid;
+    width: 100%;
+    height: 100%;
+    grid-template-columns: 1fr 2fr 2fr 2fr;
+    grid-template-rows: .01fr 1fr .01fr;
+    grid-gap: 1em;
+    grid-template-areas: 
+        ". . . ."
+        ". land-phones sign-in ."
+        "footer footer footer footer"
+    ; 
+}
+
+.land-phones {
+    grid-area: land-phones;
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    grid-template-rows: .1fr 1fr;
+    grid-template-areas: 
+        ". ."
+        ". img-land"
+    ;
+}
+
+.img-land {
+    grid-area: img-land;
+}
+
+.sign-in {
+    grid-area: sign-in;
+}
+
+.footer {
+    grid-area: footer;
+    justify-self: center;
+}
+
+/* END LANDING-PAGE CSS */
+
+
+/* BASIC FONTS*/
+body,
+button,
+input,
+textarea {
+ font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+ font-size:14px;
+ line-height:18px;
+}
+/* BASIC FONTS*/

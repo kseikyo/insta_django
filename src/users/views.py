@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+""" from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from .forms import UserForm
 # Create your views here.
@@ -11,8 +11,8 @@ def login_view(request):
     if form.is_valid():
         if user is not None:
             login(request, user)
-            # redirect('home')
+            # return redirect('home_page')
         else:
-            return redirect('home_page')
+            return redirect('landing_page')
     
-    return render(request, 'user/login.html', {'form': form})
+    return render(request, 'user/login.html', {'form': form}) """

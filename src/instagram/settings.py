@@ -129,12 +129,12 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-LOCAL_STATIC_CDN_PATH = os.path.join(os.path.dirname(BASE_DIR), 'static_local')
+LOCAL_STATIC_CDN_PATH = os.path.join(os.path.dirname(BASE_DIR), 'static')
 STATIC_ROOT = os.path.join(LOCAL_STATIC_CDN_PATH, 'static')
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static_files')
+    os.path.join(BASE_DIR, 'static'),
 ] 
 
-MEDIA_ROOT = os.path.join(LOCAL_STATIC_CDN_PATH, 'media')
-MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(LOCAL_STATIC_CDN_PATH, 'images')
+MEDIA_URL = '/images/'

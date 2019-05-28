@@ -1,12 +1,30 @@
 <!doctype html>
 <html>
 <head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'static/style_login.css' %}"/>
     <meta charset="utf-8"/>
 </head>
 <body>
     <div>
         {% block content %}
+        
+        <div class="wrapper-land">
+
+            <div class="land-phones">
+                <img class="img-land" src="{% static 'images/land-page-iphone.png' %}"/>
+            </div>
+            <div class="sign-in">
+                <h1 style="color: #262626; text-align: center;">Instagram</h1>
+                <form action="" method="POST"> {% csrf_token %}
+                    <h2 style="color: #999; text-align: center;">Cadastre-se para ver fotos e vídeos dos seus amigos.</h2>
+                    {{ form.as_p }}
+                </form>
+            </div>
+            <a class="footer" href="/login">login</a>
+        </div>
         {% endblock %}
+        
     </div>
 </body>
 </html>
