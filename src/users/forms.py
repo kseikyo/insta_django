@@ -14,13 +14,12 @@ class CustomUserCreationForm(UserCreationForm):
         
     
 class CustomUserChangeForm(UserChangeForm):
-
     class Meta(UserChangeForm):
         model  = CustomUser
-        fields = ('username', 'email')
+        fields = ('username', 'email', 'full_name')
 
 class UserForm(forms.Form):
-    username = forms.CharField()
-    password = forms.CharField(widget=forms.PasswordInput)
+    username = forms.CharField(label='', widget=forms.TextInput(attrs={'placeholder':'Nome de usuário ou email'}))
+    password = forms.CharField(label='', widget=forms.PasswordInput(attrs={'placeholder': 'Senha'}))
 
     

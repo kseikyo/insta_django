@@ -15,11 +15,12 @@ def login_view(request):
     form = UserForm(request.POST or None, request.FILES or None)
     username = request.POST.get('username', False)
     password = request.POST.get('password', False)
-    user     = authenticate(request, username=username, password=password)
+    user     = authenticate(request,username=username, password=password)
     if form.is_valid():
         if user is not None:
-            login(request, user)
-            # return redirect('home_page')
+            if user.is_active:
+                login(request, user)
+                # return redirect('home_page')
         else:
             return redirect('landing_view')
     

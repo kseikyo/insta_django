@@ -14,19 +14,24 @@
                 <img class="img-land" src="{% static 'images/land-page-iphone.png' %}"/>
             </div>
             <div class="sign-in">
-                <h1 class="instagram-h1">Instagram</h1>
-                <button type="submit" class="btn-common">Entrar com facebook</button><br/>
-                <p style="text-align: center; margin:auto;">OU</p>
-                <form action="" method="POST"> {% csrf_token %}
-                    <h2 class="landing-p-text" style="text-align: center;">Cadastre-se para ver fotos e vídeos dos seus amigos.</h2>
-                    {{ form.as_p }}
-                    <button type="submit" class="btn-common">Cadastre-se</button>
-                    <p class="landing-p-text">
-                        Ao se cadastrar, 
-                        você concorda com nossos Termos, 
-                        Política de Dados e Política de Cookies.
-                    </p>
-                </form>
+                <div class="card-sign-in">
+                    <h1 class="instagram-h1">Instagram</h1>
+                    <button style="cursor: pointer;" class="btn-common">Entrar com facebook</button><br/>
+                    <p style="text-align: center; margin:auto;">OU</p>
+                    <form action="" method="POST"> {% csrf_token %}
+                        <h2 class="landing-p-text" style="text-align: center;">Cadastre-se para ver fotos e vídeos dos seus amigos.</h2>
+                        {{ form.as_p }}
+                        <button type="submit" style="cursor: pointer;" class="btn-common">Cadastre-se</button>
+                        <p class="landing-p-text">
+                            Ao se cadastrar, 
+                            você concorda com nossos Termos, 
+                            Política de Dados e Política de Cookies.
+                        </p>
+                    </form>
+                </div>
+                <div class="already-have-account">
+                    <p>Tem uma conta? <a style="cursor: pointer;" href="/login">Conecte-se</a></p>
+                </div>
             </div>
             <a class="footer" href="/login">login</a>
         </div>
