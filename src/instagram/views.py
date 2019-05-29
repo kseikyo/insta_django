@@ -7,7 +7,7 @@ def landing_view(request):
     form = CustomUserCreationForm(request.POST or None)
     if form.is_valid():
         form.save()
-        return redirect('login_view')
+        return redirect('/login')
     return render(request, 'base.html', {'form': form})
 
 
