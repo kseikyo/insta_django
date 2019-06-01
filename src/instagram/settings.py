@@ -41,6 +41,9 @@ INSTALLED_APPS = [
 
     #OWN
     'users.apps.UsersConfig',
+    'comment.apps.CommentConfig',
+    'post.apps.PostConfig',
+    
 ]
 
 AUTH_USER_MODEL = 'users.CustomUser'
