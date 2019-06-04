@@ -1,0 +1,53 @@
+/* START GRID CSS */
+@supports(display: grid) {
+
+.header-items {
+    display: grid;
+    grid-template-columns: 1fr .5fr 1fr;
+    grid-gap: 1rem;
+    grid-template-areas: 
+    "header-item-logo header-item-search header-item-exacpro"
+    ;
+}
+
+.header-item-logo {
+    grid-area: header-item-logo;
+}
+
+.header-item-search {
+    grid-area: header-item-search;
+}
+
+.header-item-exacpro{
+    grid-area: header-item-exacpro;
+    display: grid;
+    grid-template-columns: .7fr 20% 20% 20%;
+    grid-template-areas: 
+    ". header-item-ex header-item-ac header-item-pro";
+}
+
+.header-item-ex {
+    grid-area: header-item-ex;
+}
+
+.header-item-ac {
+    grid-area: header-item-ac;
+}
+
+.header-item-pro {
+    grid-area: header-item-pro;
+}
+
+}
+/* END GRID CSS */
+
+/* BASIC FONTS*/
+body,
+button,
+input,
+textarea {
+ font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+ font-size:14px;
+ line-height:18px;
+}
+/* BASIC FONTS*/

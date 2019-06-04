@@ -1,18 +1,14 @@
-""" from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate, login, logout
 from .forms import UserForm
+from .models import CustomUser
 # Create your views here.
 
-def login_view(request):
-    form = UserForm(request.POST or None, request.FILES or None)
-    username = request.POST.get('username', False)
-    password = request.POST.get('password', False)
-    user     = authenticate(request, username=username, password=password)
-    if form.is_valid():
-        if user is not None:
-            login(request, user)
-            # return redirect('home_page')
-        else:
-            return redirect('landing_page')
-    
-    return render(request, 'user/login.html', {'form': form}) """
+def profile_view(request, username):
+    obj = get_object_or_404(CustomUser, username=username)
+    template_name= 'user/profile.html'
+    context = {
+        'user': obj,
+        'followers': obj.users_followers.all(),
+        }
+    return render(request, template_name, context)

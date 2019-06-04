@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+PROFILE FROM {{user.username}}
+<img style="height: 100px;" src="{{user.profile_picture}}">
+
+<ol>
+    {% for user in followers %}
+        <li>
+            {{user.full_name}}  asd
+        </li>
+    {% endfor %}
+</ol>
+{% endblock %}

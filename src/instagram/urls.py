@@ -17,11 +17,14 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
-from .views import landing_view, login_view
+from .views import landing_view, login_view, home_page
+from users.views import profile_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('login/', login_view, name='login'),
+    path('<str:username>', profile_view, name="profile" ),
     # path('users/', include('users.urls')),
     path('', landing_view, name='landing_view'),
+    path('/', home_page, name='home_page'),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
