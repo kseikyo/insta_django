@@ -21,5 +21,3 @@ class CustomUserChangeForm(UserChangeForm):
 class UserForm(forms.Form):
     username = forms.CharField(label='', widget=forms.TextInput(attrs={'placeholder':'Nome de usuário ou email'}))
     password = forms.CharField(label='', widget=forms.PasswordInput(attrs={'placeholder': 'Senha'}))
-
-    

@@ -3,9 +3,10 @@ from django.db import models
 
 # Create your models here.
 class CustomUser(AbstractUser):
+    id              = models.AutoField(auto_created=True, primary_key=True, serialize=True, verbose_name='ID')
     profile_picture = models.ImageField(upload_to='images/', default='/static/images/default_profile.jpeg')
-    followers       = models.ForeignKey('self', on_delete=models.CASCADE, related_name='users_followers', null=True)
-    following       = models.ForeignKey('self', on_delete=models.CASCADE, related_name='users_following', null=True)
+    followers       = models.ManyToManyField("self", blank=True, related_name='users_following', symmetrical=False)
+    following       = models.ManyToManyField("self", blank=True, related_name='users_followers', symmetrical=False)
     email           = models.EmailField(unique=True, null=False, blank=False)
     full_name       = models.CharField(max_length=120, null=False, blank=False)
     username        = models.CharField(max_length=110, unique=True, null=False, blank=False)

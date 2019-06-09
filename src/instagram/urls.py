@@ -18,7 +18,7 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
 from .views import landing_view, login_view, home_page
-from users.views import profile_view
+from users.views import profile_view, logout_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -26,5 +26,6 @@ urlpatterns = [
     path('<str:username>', profile_view, name="profile" ),
     # path('users/', include('users.urls')),
     path('', landing_view, name='landing_view'),
-    path('/', home_page, name='home_page'),
+    path('home/', home_page, name='home_page'),
+    path('logout/',logout_view, name='logout')
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
