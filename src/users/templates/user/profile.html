@@ -2,33 +2,33 @@
 
 {% block content %}
 PROFILE FROM {{user.username}}
-<img style="height: 100px;" src="{{user.profile_picture}}">
+<img style="height: 100px; width: 100px; border-radius: 50px;" src="{{user.profile_picture}}">
 
 <ol><strong>These people follow {{user.username}} </strong>
     {% for users in followers %}
-        <li>
-            {{users.full_name}}
-        </li>
+    <li>
+        {{users.full_name}}
+    </li>
     {% endfor %}
 </ol>
 
 <ol><strong>{{user.username}} is following these people</strong>
     {% for users in following %}
-        <li>
-            {{users.full_name}}
-        </li>
+    <li>
+        {{users.full_name}}
+    </li>
     {% endfor %}
 </ol>
 
 {% if request.user.is_authenticated %}
-    {% if request.user.username != user.username and user not in request.user.following.all %}
-        <form method="POST" action="" enctype="multipart/form-data"> {% csrf_token %}
-            <button type="submit">Follow</button>
-        </form>
-    {% elif request.user.username != user.username %}
-        <form method="POST" action="" enctype="multipart/form-data"> {% csrf_token %}
-            <button type="submit">Unfollow</button>
-        </form>
-    {% endif %}
+{% if request.user.username != user.username and user not in request.user.following.all %}
+<form method="POST" action="" enctype="multipart/form-data"> {% csrf_token %}
+    <button type="submit">Follow</button>
+</form>
+{% elif request.user.username != user.username %}
+<form method="POST" action="" enctype="multipart/form-data"> {% csrf_token %}
+    <button type="submit">Unfollow</button>
+</form>
+{% endif %}
 {% endif %}
 {% endblock %}

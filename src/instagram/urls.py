@@ -23,9 +23,9 @@ from users.views import profile_view, logout_view
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('login/', login_view, name='login'),
-    path('<str:username>', profile_view, name="profile" ),
+    path('<str:username>', profile_view, name="profile"),
     # path('users/', include('users.urls')),
     path('', landing_view, name='landing_view'),
     path('home/', home_page, name='home_page'),
-    path('logout/',logout_view, name='logout')
+    path('logout/', logout_view, name='logout')
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
